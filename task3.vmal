@@ -1,0 +1,47 @@
+# Task 3: Sum of 1 to N
+# Your goal for this task is to compute the sum of the first
+# N integers.
+# The A register will be initialized to the value of N
+# The B register should hold the resulting value
+
+# Note that this initial value for A is just an example.
+# Your code should work for any (reasonably small) value
+# of A
+A: 5; # Initialize the A register to 5
+B: 0; # Initialize the B register to 0 - DO NOT CHANGE
+
+# Goal:
+#
+#   B = 1 + 2 + 3 + ... + A
+#
+# If A = 1, then B = 1
+# If A = 2, then B = 1 + 2 = 3
+# If A = 3, then B = 1 + 2 + 3 = 6
+# etc.
+
+# Looping in VMAL:
+# If you want to perform a loop in VMAL, you will need to
+# do something like:
+#
+#   LBL START_LOOP_1;
+#   // Some stuff
+#   GO START_LOOP_1;
+#   LBL END_LOOP_1;
+#
+# Where in the "Some stuff" you need to have some way to
+# jump to END_LOOP_1 in order to exit the loop. You might
+# want to use some sort of if statement (like you learned
+# in Task 2) in order to conditionally break out of the
+# loop.
+
+# Note: if you want to use BIN or BIZ, you must first 
+# do the SF operation to set the N and Z flags.
+
+# Start your code here
+LBL START_LOOP_1;
+ADD B, A;
+ADD A, 7;
+SF A;
+BIZ END_LOOP_1;
+GO START_LOOP_1;
+LBL END_LOOP_1;

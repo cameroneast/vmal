@@ -1,0 +1,64 @@
+# Task 4: Weird loop
+# Your goal for this task is to implement the following
+# code in VMAL:
+#
+#  int sum = 0;
+#  for (int i = 0; i < N; i++) {
+#     if (i & 1 == 0) {
+#        sum += i + i;
+#     }
+#     else {
+#        sum -= i;
+#     }
+#  }
+#
+# The A register will be initialized to the value of N
+# The B register should hold the resulting sum
+#
+# You are REQUIRED to implement the loops as is, you may
+# not find some closed form way to compute the sum. The
+# goal is for you to combine your knowledge of loops, 
+# conditional statements, and subtraction.
+
+# Note that this initial value for A is just an example.
+# Your code should work for any value of A
+A: 5; # Initialize the A register to 5
+B: 0; # Initialize the B register to 0 - DO NOT CHANGE
+
+# Goal:
+#
+#   B = sum
+#
+# (as described by the code given)
+
+# Start your code here
+E: 0;
+GO START_LOOP_1;
+LBL START_LOOP_1;
+
+SF A;
+BIZ END_LOOP_1;
+
+MV D, E;
+AND D, 6;
+SF D;
+BIZ IF_START_1;
+GO IF_END_1;
+
+LBL IF_START_1;
+LS C, E;
+ADD B, C;
+ADD E, 6;
+ADD A, 7;
+GO START_LOOP_1;
+
+LBL IF_END_1;
+NOT C, E;
+ADD C, 6;
+ADD B, C;
+
+ADD E, 6;
+ADD A, 7;
+
+GO START_LOOP_1;
+LBL END_LOOP_1;

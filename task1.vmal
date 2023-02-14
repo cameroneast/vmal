@@ -1,0 +1,26 @@
+# Task 1: Subtraction
+# Your goal for this task is to implement subtraction
+# The A and B registers will be initialized with some value
+# You must set the C register equal to A - B
+
+# Note that these initial values are just an example.
+# Your code should work regardless of what A and B are
+# initialized to.
+A: 8; # Initialize the A register to 8
+B: 5; # Initialize the B register to 5
+C: 0; # Initialize the C register to 0 - DO NOT CHANGE
+
+# Goal:
+#
+#   C = A - B
+#
+
+# This code currently does C = A + B
+# Remove this code before starting
+# MV C, A;
+# ADD C, B;
+
+# Start your code here
+NOT C, B;
+ADD C, A;
+ADD C, 6;
